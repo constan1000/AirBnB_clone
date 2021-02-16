@@ -2,14 +2,7 @@
 """ Console Module """
 import cmd
 import sys
-from models.base_model import BaseModel
-from models.__init__ import storage
-from models.user import User
-from models.place import Place
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.review import Review
+from models import BaseModel, City, Amenity, Place, Review, State, User, storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -80,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
                         # _args = _args.replace('\"', '')
             line = ' '.join([_cmd, _cls, _id, _args])
 
-        except Exception as mess:
+        except Exception :
             pass
         finally:
             return line
@@ -222,7 +215,7 @@ class HBNBCommand(cmd.Cmd):
     def do_count(self, args):
         """Count current number of class instances"""
         count = 0
-        for k, v in storage._FileStorage__objects.items():
+        for k in storage._FileStorage__objects.items():
             if args == k.split('.')[0]:
                 count += 1
         print(count)
