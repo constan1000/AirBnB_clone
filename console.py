@@ -5,6 +5,7 @@ import sys
 from models import BaseModel, City, Amenity, Place, Review, State, User, storage
 
 
+
 class HBNBCommand(cmd.Cmd):
     """ Contains the functionality for the HBNB console"""
 
